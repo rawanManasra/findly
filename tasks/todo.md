@@ -486,12 +486,12 @@ findly/
 
 ## Development Phases (POC)
 
-### Phase 0: Project Setup ⏳
-- [ ] Initialize Spring Boot project with dependencies
-- [ ] Initialize React web project (Vite + TypeScript)
-- [ ] Set up PostgreSQL + PostGIS with Docker
-- [ ] Configure Flyway migrations
-- [ ] Set up basic CI (GitHub Actions)
+### Phase 0: Project Setup ✅ COMPLETED
+- [x] Initialize Spring Boot project with dependencies
+- [x] Initialize React web project (Vite + TypeScript)
+- [x] Set up PostgreSQL + PostGIS with Docker
+- [x] Configure Flyway migrations
+- [x] Set up basic CI (GitHub Actions)
 
 ### Phase 1: Core Backend
 - [ ] Database migrations (all tables)
@@ -600,3 +600,12 @@ findly/
 - **Updated:** Multi-platform strategy (Web + Mobile)
 - **Updated:** Clean architecture project structure
 - **Updated:** Detailed coding plan with phases
+- **COMPLETED Phase 0:**
+  - Spring Boot 3 backend with all dependencies
+  - PostgreSQL + PostGIS Docker Compose
+  - Flyway migrations (V1: schema, V2: seed categories)
+  - React + Vite + TypeScript + Tailwind frontend
+  - Basic pages: Home, Search, BusinessDetail, Login, Register, Owner Dashboard
+  - API service with axios interceptors
+  - GitHub Actions CI pipeline
+  - README.md with setup instructions
