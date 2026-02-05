@@ -2,15 +2,15 @@
 
 ## Current Tasks
 
-### GitHub Setup
-- [ ] Create GitHub repository `findly` at https://github.com/new
-- [ ] Initialize local git repo
-- [ ] Add remote origin
-- [ ] Push initial commit
+_None_
 
 ## Completed Tasks
 
-_None yet_
+### GitHub Setup (2026-02-05)
+- [x] Create GitHub repository `findly` at https://github.com/new
+- [x] Initialize local git repo
+- [x] Add remote origin
+- [x] Push initial commit
 
 ## Issues & Solutions
 
