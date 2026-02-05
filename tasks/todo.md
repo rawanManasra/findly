@@ -493,12 +493,16 @@ findly/
 - [x] Configure Flyway migrations
 - [x] Set up basic CI (GitHub Actions)
 
-### Phase 1: Core Backend
-- [ ] Database migrations (all tables)
-- [ ] User entity + repository
-- [ ] Business entity with PostGIS location
-- [ ] JWT authentication (register/login)
-- [ ] Basic error handling
+### Phase 1: Core Backend ✅ COMPLETED
+- [x] Database migrations (all tables)
+- [x] User entity + repository
+- [x] Business entity with PostGIS location
+- [x] JWT authentication (register/login)
+- [x] Basic error handling
+- [x] All entities: Service, WorkingHours, Booking, Category, Notification, RefreshToken
+- [x] All repositories with geo queries
+- [x] Spring Security configuration
+- [x] CORS and OpenAPI configuration
 
 ### Phase 2: Location & Search
 - [ ] Geo query for nearby businesses
@@ -609,3 +613,12 @@ findly/
   - API service with axios interceptors
   - GitHub Actions CI pipeline
   - README.md with setup instructions
+- **COMPLETED Phase 1:**
+  - All domain entities with clean architecture
+  - PostGIS location support on Business entity
+  - JWT authentication with refresh tokens
+  - Spring Security with role-based access
+  - Global exception handling (production-ready)
+  - MapStruct DTO mapping
+  - Swagger/OpenAPI documentation
+  - CORS configuration
