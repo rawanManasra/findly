@@ -504,12 +504,12 @@ findly/
 - [x] Spring Security configuration
 - [x] CORS and OpenAPI configuration
 
-### Phase 2: Location & Search
-- [ ] Geo query for nearby businesses
-- [ ] Business CRUD (owner)
-- [ ] Services CRUD (owner)
-- [ ] Working hours management
-- [ ] Category listing
+### Phase 2: Location & Search ✅ COMPLETED
+- [x] Geo query for nearby businesses (PostGIS ST_DWithin)
+- [x] Business CRUD (owner)
+- [x] Services CRUD (owner)
+- [x] Working hours management
+- [x] Category listing
 
 ### Phase 3: Booking Flow
 - [ ] Slot availability calculation
@@ -622,3 +622,12 @@ findly/
   - MapStruct DTO mapping
   - Swagger/OpenAPI documentation
   - CORS configuration
+- **COMPLETED Phase 2:**
+  - BusinessService with geo queries (ST_DWithin for 5km radius)
+  - Public BusinessController for nearby search
+  - OwnerBusinessController for business CRUD
+  - ServiceService and management endpoints
+  - WorkingHoursService with bulk update
+  - CategoryService with hierarchical categories
+  - All DTOs with Jakarta validation
+  - Complete MapStruct mappers
