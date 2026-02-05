@@ -1,46 +1,42 @@
-# Findly Project
+# Findly - Business Booking Platform
 
-## Project Setup
+## Overview
 
-**Repository:** `findly`
-**Owner:** rawanManasra
-**GitHub URL:** https://github.com/rawanManasra/findly
+A web platform connecting small businesses with consumers for appointment booking.
 
-## Git Setup Instructions
+**Repository:** https://github.com/rawanManasra/findly
 
-### Initial Setup (One-time)
-
-1. Create a new repository on GitHub named `findly` at https://github.com/new
-2. Initialize git and push:
+## Quick Start
 
 ```bash
-cd /Users/rawanmanasra/Documents/claude-code/findly
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/rawanManasra/findly.git
-git push -u origin main
+# Push changes
+git add . && git commit -m "message" && git push
 ```
 
-### Pushing Changes
+## Documentation
 
-After making changes, push with:
+- **Full Plan & DB Design:** `tasks/todo.md`
+- **Current Phase:** Planning & Design
 
-```bash
-git add .
-git commit -m "Your commit message"
-git push
-```
+## Tech Stack (Pending Decision)
 
-## Tasks
+| Layer    | Option A (MVP)     | Option B (Production) |
+|----------|--------------------|-----------------------|
+| Frontend | React + Tailwind   | React + Tailwind      |
+| Backend  | Node.js + Express  | Spring Boot           |
+| Database | PostgreSQL         | PostgreSQL            |
+| SMS      | Twilio             | Twilio                |
 
-- [ ] Create GitHub repository `findly`
-- [ ] Initialize local git repo
-- [ ] Push initial commit
+## Key Entities
 
-## Session Log
+- **Users** - Customers & Business Owners
+- **Businesses** - Profiles with working hours
+- **Services** - What businesses offer
+- **Bookings** - Appointments with status workflow
+- **Notifications** - SMS alerts
 
-### 2026-02-05
-**Task:** Set up GitHub repository for findly project
-**Status:** Pending - waiting for GitHub repo creation
+## Rules
+
+1. Always update `tasks/todo.md` after changes
+2. Keep commits small and focused
+3. Test before pushing
