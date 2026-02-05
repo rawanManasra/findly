@@ -18,14 +18,16 @@ git add . && git commit -m "message" && git push
 - **Full Plan & DB Design:** `tasks/todo.md`
 - **Current Phase:** Planning & Design
 
-## Tech Stack (Pending Decision)
+## Tech Stack (Final)
 
-| Layer    | Option A (MVP)     | Option B (Production) |
-|----------|--------------------|-----------------------|
-| Frontend | React + Tailwind   | React + Tailwind      |
-| Backend  | Node.js + Express  | Spring Boot           |
-| Database | PostgreSQL         | PostgreSQL            |
-| SMS      | Twilio             | Twilio                |
+| Layer    | Technology |
+|----------|------------|
+| Frontend | React + Tailwind CSS + Vite |
+| Backend  | Spring Boot 3 + Spring Security |
+| Database | PostgreSQL + Flyway |
+| Auth     | JWT + OAuth2 (Google) + Phone OTP |
+| SMS      | Twilio |
+| Deploy   | Docker → AWS/Railway |
 
 ## Key Entities
 

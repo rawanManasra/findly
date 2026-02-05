@@ -234,13 +234,27 @@ findly/
 
 ---
 
-## Questions to Clarify
+## Decisions Made
 
-1. **Tech stack preference?** Node.js (faster MVP) or Java/Spring Boot (your expertise)?
-2. **SMS provider?** Twilio is standard, but there are cheaper options
-3. **Authentication?** Email/password? Phone OTP? Social login?
-4. **Multiple services per business?** (haircut, coloring, etc.) or single service?
-5. **Pricing display?** Show prices to customers?
+| Question | Decision |
+|----------|----------|
+| Tech stack | **Java/Spring Boot** + React |
+| SMS provider | **Twilio** (can switch later) |
+| Authentication | **All:** Email/password + Phone OTP + Social (Google) |
+| Services | **Multiple** per business |
+| Pricing | **Show** prices to customers |
+
+## Final Tech Stack
+
+```
+Frontend:  React + Tailwind CSS + Vite
+Backend:   Spring Boot 3 + Spring Security + JWT
+Database:  PostgreSQL + Flyway migrations
+SMS:       Twilio
+Auth:      JWT + OAuth2 (Google)
+Build:     Maven
+Deploy:    Docker → AWS/Railway
+```
 
 ---
 
