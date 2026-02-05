@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    root: WARN
+    com.findly: INFO
+    org.hibernate.SQL: WARN
+
+twilio:
+  enabled: true

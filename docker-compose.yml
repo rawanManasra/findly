@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # PostgreSQL with PostGIS extension
+  postgres:
+    image: postgis/postgis:16-3.4-alpine
+    container_name: findly-postgres
+    environment:
+      POSTGRES_DB: findly
+      POSTGRES_USER: findly
+      POSTGRES_PASSWORD: findly123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U findly -d findly"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - findly-network
+
+  # pgAdmin for database management (optional, for development)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: findly-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@findly.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - findly-network
+    profiles:
+      - tools
+
+volumes:
+  postgres_data:
+
+networks:
+  findly-network:
+    driver: bridge
