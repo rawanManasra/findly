@@ -518,15 +518,17 @@ findly/
 - [x] Cancel booking
 - [x] Booking status workflow
 
-### Phase 4: Web Frontend ✅ IN PROGRESS
+### Phase 4: Web Frontend ✅ COMPLETED
 - [x] Consumer: Home with location permission
 - [x] Consumer: Search results with filters
 - [x] Consumer: Business detail + booking modal
 - [x] useAuth hook with context provider
 - [x] API service with all endpoints
-- [ ] Owner: Dashboard (needs real API connection)
-- [ ] Owner: Business setup
-- [ ] Owner: Booking management
+- [x] Owner: Dashboard with real API data
+- [x] Owner: Bookings page (approve/reject/complete/no-show)
+- [x] Owner: Services page (add/edit/delete)
+- [x] Owner: Working Hours page
+- [x] Owner: Settings page (business setup/location)
 
 ### Phase 4.5: Unit Tests ✅ COMPLETED
 - [x] BookingService unit tests (slot availability, create booking, owner operations)
@@ -651,13 +653,18 @@ findly/
   - OwnerBookingController for approve/reject/complete/no-show
   - BookingMapper for entity-to-DTO conversion
   - Complete booking status workflow
-- **IN PROGRESS Phase 4 (Web Frontend):**
+- **COMPLETED Phase 4 (Web Frontend):**
   - Home page with geolocation and category browsing
   - Search page with real API integration and filters
   - Business detail page with booking modal
   - useAuth hook with React context
   - Complete API service layer (auth, business, booking, owner)
   - Guest booking support
+  - Owner Dashboard with real API data (today's bookings, pending approvals)
+  - Owner Bookings page (approve/reject/complete/no-show)
+  - Owner Services page (add/edit/delete services)
+  - Owner Working Hours page (set schedule for each day)
+  - Owner Settings page (create/edit business, update location)
 - **COMPLETED Phase 4.5 (Unit Tests):**
   - BookingService: 25+ tests covering slot availability, create booking, customer/owner operations
   - BusinessService: 15+ tests covering search, CRUD, location updates

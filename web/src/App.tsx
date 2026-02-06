@@ -8,6 +8,10 @@ const BusinessDetail = lazy(() => import('@/pages/consumer/BusinessDetail'))
 const Login = lazy(() => import('@/pages/auth/Login'))
 const Register = lazy(() => import('@/pages/auth/Register'))
 const OwnerDashboard = lazy(() => import('@/pages/owner/Dashboard'))
+const OwnerBookings = lazy(() => import('@/pages/owner/Bookings'))
+const OwnerServices = lazy(() => import('@/pages/owner/Services'))
+const OwnerHours = lazy(() => import('@/pages/owner/Hours'))
+const OwnerSettings = lazy(() => import('@/pages/owner/Settings'))
 
 // Loading component
 const PageLoader = () => (
@@ -31,7 +35,10 @@ function App() {
 
         {/* Owner Routes */}
         <Route path="/owner" element={<OwnerDashboard />} />
-        <Route path="/owner/*" element={<OwnerDashboard />} />
+        <Route path="/owner/bookings" element={<OwnerBookings />} />
+        <Route path="/owner/services" element={<OwnerServices />} />
+        <Route path="/owner/hours" element={<OwnerHours />} />
+        <Route path="/owner/settings" element={<OwnerSettings />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
