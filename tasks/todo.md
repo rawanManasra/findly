@@ -689,4 +689,14 @@ findly/
   - Installed Docker Desktop via Homebrew
   - Frontend running at http://localhost:3000 (Vite)
   - Backend failed to start - PostgreSQL not running
-  - **TODO for next session:** Start Docker, run `docker compose up -d postgres`, then start backend
+- **Successfully ran local development environment:**
+  - Fixed Maven wrapper (regenerated v3.3.4)
+  - Fixed Hibernate schema validation error (WorkingHours.dayOfWeek SMALLINT mismatch)
+  - Disabled Google OAuth2 config (requires credentials)
+  - Changed `ddl-auto` from `validate` to `none` (Flyway manages schema)
+  - All services running:
+    - PostgreSQL + PostGIS: localhost:5432
+    - Backend API: http://localhost:8080
+    - Swagger UI: http://localhost:8080/swagger-ui.html
+    - Frontend: http://localhost:3000
+  - Committed fix: `d0bd1f2`
