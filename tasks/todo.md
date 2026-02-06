@@ -700,3 +700,26 @@ findly/
     - Swagger UI: http://localhost:8080/swagger-ui.html
     - Frontend: http://localhost:3000
   - Committed fix: `d0bd1f2`
+- **Fixed PostGIS native queries:**
+  - Changed `::geography` to `CAST(... AS geography)` (Spring interprets :: as named param)
+  - Added explicit cast for `business_status` enum type
+  - Committed: `d65168c`
+- **Added sample data (V3 migration):**
+  - 6 test users (4 business owners, 2 customers)
+  - 5 businesses in Tel Aviv area with real coordinates
+  - 24 services across all businesses
+  - Working hours for all 7 days per business
+  - Committed: `3ae3579`
+- **Implemented login/register functionality:**
+  - Connected Login page to useAuth hook and API
+  - Connected Register page to useAuth hook and API
+  - Added error handling and loading states
+  - Committed: `c22dc2a`
+- **Fixed PostgreSQL enum type issues:**
+  - Added `stringtype=unspecified` to JDBC URL for auto enum casting
+  - Fixed BCrypt password hash in seed data
+  - Committed: `182e76d`
+- **Test Results:** 221/234 passed (13 Mockito/Java 25 compatibility errors)
+- **Test Credentials:**
+  - Business Owner: `owner1@test.com` / `Password123`
+  - Customer: `customer1@test.com` / `Password123`
