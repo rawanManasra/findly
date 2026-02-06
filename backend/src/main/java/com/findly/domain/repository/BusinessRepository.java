@@ -37,14 +37,14 @@ public interface BusinessRepository extends JpaRepository<Business, UUID> {
      */
     @Query(value = """
         SELECT b.*,
-               ST_Distance(b.location, ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography) as distance
+               ST_Distance(b.location, CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography)) as distance
         FROM businesses b
         WHERE ST_DWithin(
             b.location,
-            ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography,
+            CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography),
             :radiusMeters
         )
-        AND b.status = :#{#status.name()}
+        AND b.status = CAST(:#{#status.name()} AS business_status)
         AND b.deleted_at IS NULL
         ORDER BY distance
         """,
@@ -53,10 +53,10 @@ public interface BusinessRepository extends JpaRepository<Business, UUID> {
         FROM businesses b
         WHERE ST_DWithin(
             b.location,
-            ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography,
+            CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography),
             :radiusMeters
         )
-        AND b.status = :#{#status.name()}
+        AND b.status = CAST(:#{#status.name()} AS business_status)
         AND b.deleted_at IS NULL
         """,
         nativeQuery = true)
@@ -72,14 +72,14 @@ public interface BusinessRepository extends JpaRepository<Business, UUID> {
      */
     @Query(value = """
         SELECT b.*,
-               ST_Distance(b.location, ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography) as distance
+               ST_Distance(b.location, CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography)) as distance
         FROM businesses b
         WHERE ST_DWithin(
             b.location,
-            ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography,
+            CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography),
             :radiusMeters
         )
-        AND b.status = :#{#status.name()}
+        AND b.status = CAST(:#{#status.name()} AS business_status)
         AND b.category_id = :categoryId
         AND b.deleted_at IS NULL
         ORDER BY distance
@@ -89,10 +89,10 @@ public interface BusinessRepository extends JpaRepository<Business, UUID> {
         FROM businesses b
         WHERE ST_DWithin(
             b.location,
-            ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography,
+            CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography),
             :radiusMeters
         )
-        AND b.status = :#{#status.name()}
+        AND b.status = CAST(:#{#status.name()} AS business_status)
         AND b.category_id = :categoryId
         AND b.deleted_at IS NULL
         """,
@@ -110,14 +110,14 @@ public interface BusinessRepository extends JpaRepository<Business, UUID> {
      */
     @Query(value = """
         SELECT b.*,
-               ST_Distance(b.location, ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography) as distance
+               ST_Distance(b.location, CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography)) as distance
         FROM businesses b
         WHERE ST_DWithin(
             b.location,
-            ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography,
+            CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography),
             :radiusMeters
         )
-        AND b.status = :#{#status.name()}
+        AND b.status = CAST(:#{#status.name()} AS business_status)
         AND (LOWER(b.name) LIKE LOWER(CONCAT('%', :searchTerm, '%'))
              OR LOWER(b.description) LIKE LOWER(CONCAT('%', :searchTerm, '%')))
         AND b.deleted_at IS NULL
@@ -128,10 +128,10 @@ public interface BusinessRepository extends JpaRepository<Business, UUID> {
         FROM businesses b
         WHERE ST_DWithin(
             b.location,
-            ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326)::geography,
+            CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography),
             :radiusMeters
         )
-        AND b.status = :#{#status.name()}
+        AND b.status = CAST(:#{#status.name()} AS business_status)
         AND (LOWER(b.name) LIKE LOWER(CONCAT('%', :searchTerm, '%'))
              OR LOWER(b.description) LIKE LOWER(CONCAT('%', :searchTerm, '%')))
         AND b.deleted_at IS NULL
