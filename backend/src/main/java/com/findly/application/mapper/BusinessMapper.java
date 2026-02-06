@@ -14,6 +14,7 @@ public interface BusinessMapper {
     @Mapping(target = "longitude", expression = "java(business.getLongitude())")
     @Mapping(target = "fullAddress", expression = "java(business.getFullAddress())")
     @Mapping(target = "distanceMeters", ignore = true)
+    @Mapping(target = "category", qualifiedByName = "toSimpleResponse")
     BusinessResponse toResponse(Business business);
 
     @Mapping(target = "latitude", expression = "java(business.getLatitude())")
@@ -23,6 +24,7 @@ public interface BusinessMapper {
     @Mapping(target = "services", source = "services")
     @Mapping(target = "workingHours", source = "workingHours")
     @Mapping(target = "owner", ignore = true)
+    @Mapping(target = "category", qualifiedByName = "toSimpleResponse")
     BusinessDetailResponse toDetailResponse(Business business);
 
     @Mapping(target = "latitude", expression = "java(business.getLatitude())")
@@ -31,6 +33,7 @@ public interface BusinessMapper {
     @Mapping(target = "services", source = "services")
     @Mapping(target = "workingHours", source = "workingHours")
     @Mapping(target = "owner", source = "owner")
+    @Mapping(target = "category", qualifiedByName = "toSimpleResponse")
     BusinessDetailResponse toOwnerDetailResponse(Business business);
 
     default BusinessResponse toResponseWithDistance(Business business, Double distanceMeters) {

@@ -511,20 +511,32 @@ findly/
 - [x] Working hours management
 - [x] Category listing
 
-### Phase 3: Booking Flow
-- [ ] Slot availability calculation
-- [ ] Create booking (guest + registered)
-- [ ] Approve/Reject (owner)
-- [ ] Cancel booking
-- [ ] Booking status workflow
+### Phase 3: Booking Flow ✅ COMPLETED
+- [x] Slot availability calculation
+- [x] Create booking (guest + registered)
+- [x] Approve/Reject (owner)
+- [x] Cancel booking
+- [x] Booking status workflow
 
-### Phase 4: Web Frontend
-- [ ] Consumer: Home with location permission
-- [ ] Consumer: Search results with map
-- [ ] Consumer: Business detail + booking
-- [ ] Owner: Dashboard
+### Phase 4: Web Frontend ✅ IN PROGRESS
+- [x] Consumer: Home with location permission
+- [x] Consumer: Search results with filters
+- [x] Consumer: Business detail + booking modal
+- [x] useAuth hook with context provider
+- [x] API service with all endpoints
+- [ ] Owner: Dashboard (needs real API connection)
 - [ ] Owner: Business setup
 - [ ] Owner: Booking management
+
+### Phase 4.5: Unit Tests ✅ COMPLETED
+- [x] BookingService unit tests (slot availability, create booking, owner operations)
+- [x] BusinessService unit tests (search, CRUD, location)
+- [x] AuthService unit tests (register, login, refresh token, logout)
+- [x] ServiceService unit tests (CRUD operations)
+- [x] BookingController tests
+- [x] AuthController tests
+- [x] Booking entity tests (status transitions)
+- [x] JaCoCo coverage plugin configured (85% minimum)
 
 ### Phase 5: Notifications
 - [ ] Twilio integration
@@ -631,3 +643,26 @@ findly/
   - CategoryService with hierarchical categories
   - All DTOs with Jakarta validation
   - Complete MapStruct mappers
+- **COMPLETED Phase 3:**
+  - BookingService with slot availability calculation
+  - Time slot generation considering working hours, breaks, existing bookings
+  - Create booking for registered users and guest bookings
+  - BookingController (consumer) with all booking endpoints
+  - OwnerBookingController for approve/reject/complete/no-show
+  - BookingMapper for entity-to-DTO conversion
+  - Complete booking status workflow
+- **IN PROGRESS Phase 4 (Web Frontend):**
+  - Home page with geolocation and category browsing
+  - Search page with real API integration and filters
+  - Business detail page with booking modal
+  - useAuth hook with React context
+  - Complete API service layer (auth, business, booking, owner)
+  - Guest booking support
+- **COMPLETED Phase 4.5 (Unit Tests):**
+  - BookingService: 25+ tests covering slot availability, create booking, customer/owner operations
+  - BusinessService: 15+ tests covering search, CRUD, location updates
+  - AuthService: 15+ tests covering register, login, refresh token
+  - ServiceService: 12+ tests covering CRUD operations
+  - Controller tests: BookingController, AuthController
+  - Domain entity tests: Booking status transitions
+  - JaCoCo plugin for 85% minimum coverage requirement

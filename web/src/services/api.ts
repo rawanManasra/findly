@@ -88,8 +88,17 @@ export const businessApi = {
 
   getServices: (id: string) => api.get(`/businesses/${id}/services`),
 
-  getSlots: (id: string, date: string, serviceId?: string) =>
-    api.get(`/businesses/${id}/slots`, { params: { date, service_id: serviceId } }),
+  getWorkingHours: (id: string) => api.get(`/businesses/${id}/hours`),
+
+  getSlots: (businessId: string, serviceId: string, date: string) =>
+    api.get(`/bookings/businesses/${businessId}/slots`, { params: { serviceId, date } }),
+}
+
+// Category API
+export const categoryApi = {
+  getAll: () => api.get('/categories'),
+  getById: (id: string) => api.get(`/categories/${id}`),
+  getBySlug: (slug: string) => api.get(`/categories/slug/${slug}`),
 }
 
 // Booking API
@@ -100,29 +109,103 @@ export const bookingApi = {
     date: string
     startTime: string
     notes?: string
-    guestName?: string
-    guestPhone?: string
-    guestEmail?: string
   }) => api.post('/bookings', data),
 
-  getMyBookings: () => api.get('/bookings'),
+  createGuest: (data: {
+    businessId: string
+    serviceId: string
+    date: string
+    startTime: string
+    notes?: string
+    guestName: string
+    guestPhone: string
+    guestEmail?: string
+  }) => api.post('/bookings/guest', data),
+
+  getMyBookings: (status?: string) => api.get('/bookings', { params: { status } }),
+
+  getById: (id: string) => api.get(`/bookings/${id}`),
 
   cancel: (id: string) => api.put(`/bookings/${id}/cancel`),
 }
 
 // Owner API
 export const ownerApi = {
+  // Business management
   getMyBusinesses: () => api.get('/owner/businesses'),
+  getBusiness: (id: string) => api.get(`/owner/businesses/${id}`),
+  createBusiness: (data: {
+    name: string
+    description?: string
+    categoryId?: string
+    phone?: string
+    email?: string
+    website?: string
+  }) => api.post('/owner/businesses', data),
+  updateBusiness: (id: string, data: {
+    name?: string
+    description?: string
+    categoryId?: string
+    phone?: string
+    email?: string
+    website?: string
+  }) => api.put(`/owner/businesses/${id}`, data),
+  updateLocation: (id: string, data: {
+    addressLine1: string
+    addressLine2?: string
+    city: string
+    state?: string
+    postalCode?: string
+    country: string
+    latitude: number
+    longitude: number
+  }) => api.put(`/owner/businesses/${id}/location`, data),
+  deleteBusiness: (id: string) => api.delete(`/owner/businesses/${id}`),
 
-  createBusiness: (data: any) => api.post('/owner/businesses', data),
+  // Services management
+  getServices: (businessId: string) => api.get(`/owner/businesses/${businessId}/services`),
+  addService: (businessId: string, data: {
+    name: string
+    description?: string
+    durationMins: number
+    price?: number
+    currency?: string
+  }) => api.post(`/owner/businesses/${businessId}/services`, data),
+  updateService: (businessId: string, serviceId: string, data: {
+    name?: string
+    description?: string
+    durationMins?: number
+    price?: number
+    currency?: string
+    active?: boolean
+  }) => api.put(`/owner/businesses/${businessId}/services/${serviceId}`, data),
+  deleteService: (businessId: string, serviceId: string) =>
+    api.delete(`/owner/businesses/${businessId}/services/${serviceId}`),
 
-  updateBusiness: (id: string, data: any) => api.put(`/owner/businesses/${id}`, data),
+  // Working hours management
+  getWorkingHours: (businessId: string) => api.get(`/owner/businesses/${businessId}/hours`),
+  updateWorkingHours: (businessId: string, data: {
+    hours: Array<{
+      dayOfWeek: number
+      startTime?: string
+      endTime?: string
+      closed: boolean
+      breakStart?: string
+      breakEnd?: string
+    }>
+  }) => api.put(`/owner/businesses/${businessId}/hours`, data),
 
+  // Booking management
   getBookings: (params?: { businessId?: string; status?: string; date?: string }) =>
     api.get('/owner/bookings', { params }),
-
+  getBooking: (id: string) => api.get(`/owner/bookings/${id}`),
+  getTodayBookings: (businessId?: string) =>
+    api.get('/owner/bookings/today', { params: { businessId } }),
+  getPendingBookings: (businessId?: string) =>
+    api.get('/owner/bookings/pending', { params: { businessId } }),
   approveBooking: (id: string) => api.put(`/owner/bookings/${id}/approve`),
-
   rejectBooking: (id: string, reason?: string) =>
     api.put(`/owner/bookings/${id}/reject`, { reason }),
+  completeBooking: (id: string) => api.put(`/owner/bookings/${id}/complete`),
+  markNoShow: (id: string) => api.put(`/owner/bookings/${id}/no-show`),
 }
