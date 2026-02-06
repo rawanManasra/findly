@@ -28,7 +28,7 @@ public class WorkingHours {
     @JoinColumn(name = "business_id", nullable = false)
     private Business business;
 
-    @Column(name = "day_of_week", nullable = false)
+    @Column(name = "day_of_week", nullable = false, columnDefinition = "SMALLINT")
     private Integer dayOfWeek; // 0 = Sunday, 6 = Saturday
 
     @Column(name = "start_time")

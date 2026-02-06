@@ -13,7 +13,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.spatial.dialect.postgis.PostgisPG10Dialect
@@ -51,15 +51,15 @@ twilio:
   phone-number: ${TWILIO_PHONE_NUMBER:}
   enabled: ${TWILIO_ENABLED:false}
 
-# OAuth2 Configuration
-spring.security.oauth2.client:
-  registration:
-    google:
-      client-id: ${GOOGLE_CLIENT_ID:}
-      client-secret: ${GOOGLE_CLIENT_SECRET:}
-      scope:
-        - email
-        - profile
+# OAuth2 Configuration (disabled - uncomment when you have Google credentials)
+# spring.security.oauth2.client:
+#   registration:
+#     google:
+#       client-id: ${GOOGLE_CLIENT_ID:}
+#       client-secret: ${GOOGLE_CLIENT_SECRET:}
+#       scope:
+#         - email
+#         - profile
 
 # OpenAPI / Swagger
 springdoc:
