@@ -57,3 +57,4 @@ git add . && git commit -m "message" && git push
 2. Use DTOs - never expose entities
 3. Soft delete for important data
 4. UUID for all primary keys
+5. **Every change must be tested and pushed** - Run tests before committing, push after every commit
