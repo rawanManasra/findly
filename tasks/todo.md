@@ -673,3 +673,20 @@ findly/
   - Controller tests: BookingController, AuthController
   - Domain entity tests: Booking status transitions
   - JaCoCo plugin for 85% minimum coverage requirement
+
+### 2026-02-06
+- Committed Phase 3 & 4 booking backend + consumer frontend
+- Added rule to CLAUDE.md: "Every change must be tested and pushed"
+- **COMPLETED Phase 4 Owner Pages:**
+  - Created OwnerLayout component (shared sidebar navigation)
+  - Updated Dashboard with real API data (today's bookings, pending approvals, stats)
+  - Created Bookings page (filter by status/date, approve/reject/complete/no-show)
+  - Created Services page (add/edit/delete services, toggle active)
+  - Created Hours page (set working hours for each day, breaks, copy to all)
+  - Created Settings page (create/edit business, update location with coordinates)
+  - Updated App.tsx with all owner routes
+- Attempted to run local development environment:
+  - Installed Docker Desktop via Homebrew
+  - Frontend running at http://localhost:3000 (Vite)
+  - Backend failed to start - PostgreSQL not running
+  - **TODO for next session:** Start Docker, run `docker compose up -d postgres`, then start backend
