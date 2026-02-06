@@ -6,7 +6,7 @@ spring:
     active: dev
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:findly}
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:findly}?stringtype=unspecified
     username: ${DB_USERNAME:findly}
     password: ${DB_PASSWORD:findly123}
     driver-class-name: org.postgresql.Driver
